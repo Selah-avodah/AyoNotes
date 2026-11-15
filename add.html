@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leave a note · Jar of Notes</title>
+  <meta name="theme-color" content="#170f0e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=Nunito:wght@500;700;800&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="add-page">
+  <main class="page narrow">
+    <header class="header">
+      <p class="eyebrow">Request a song</p>
+      <h1 id="title">Jar of Notes</h1>
+      <p class="subtitle">Leave a note. It'll get its own key on the keyboard.</p>
+    </header>
+
+    <div class="sheet standalone" id="addRoot">
+      <form data-f="form" novalidate>
+        <h2 class="sheet-from">Leave a note</h2>
+        <p class="form-intro">Write a message, add a photo of a handwritten note, or both.</p>
+
+        <label class="field"><span>Your name</span>
+          <input data-f="name" type="text" maxlength="60" autocomplete="name" required />
+        </label>
+        <label class="field"><span>Your message</span>
+          <textarea data-f="msg" maxlength="2000" rows="6" placeholder="Write something kind…"></textarea>
+        </label>
+        <div class="field"><span>Photo <em>(optional)</em></span>
+          <label class="photo-pick" data-f="pick"><input data-f="photo" type="file" accept="image/*" /><span>📷 Choose a photo</span></label>
+          <div class="photo-preview" data-f="preview" hidden>
+            <img data-f="previewImg" alt="Selected photo" />
+            <button class="btn ghost" data-f="remove" type="button">Remove photo</button>
+          </div>
+        </div>
+        <p class="form-error" data-f="error" role="alert"></p>
+        <button class="btn submit" data-f="submit" type="submit">Add my note to the keyboard</button>
+      </form>
+
+      <div class="done" data-f="done" hidden>
+        <div class="done-quaver"><svg viewBox="0 0 24 32" aria-hidden="true"><use href="#quaver"/></svg></div>
+        <h2 class="sheet-from">Your note is on the keyboard!</h2>
+        <p data-f="doneMsg"></p>
+        <div class="done-actions">
+          <button class="btn ghost" data-f="another" type="button">Add another</button>
+          <a class="btn" href="./">See the keyboard</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="setup-warning" id="setupWarning" hidden>The note form isn't connected yet. Add your Supabase details to <code>notes.js</code>.</p>
+  </main>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="quaver" viewBox="0 0 24 32">
+      <ellipse cx="8.2" cy="25.2" rx="6.6" ry="4.7" transform="rotate(-22 8.2 25.2)"/>
+      <rect x="12.9" y="2.5" width="2.5" height="23" rx="1.1"/>
+      <path d="M15.2 2.5c.3 4.6 3.9 6.1 5.6 9.2 1.6 2.9.9 6.6-.9 8.6 1-3.6-.4-6.3-4.7-8.1z"/>
+    </symbol>
+  </svg>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="notes.js"></script>
+  <script src="sound.js"></script>
+  <script src="form.js"></script>
+  <script>
+    (function () {
+      var cfg = window.COOKIE_JAR || window.JAR_OF_NOTES || {};
+      if (cfg.title) document.getElementById("title").textContent = cfg.title;
+      var sb = NoteForm.client(cfg);
+      if (!sb && !cfg.demo) document.getElementById("setupWarning").hidden = false;
+      NoteForm.init(document.getElementById("addRoot"), { cfg: cfg, sb: sb, onError: function () { Sound.error(); } });
+    })();
+  </script>
+</body>
+</html>
