@@ -18,7 +18,7 @@
 */
 
 window.JAR_OF_NOTES = {
-  title: "Jar of Notes",
+  title: "Birthday Notes for Ayolabi",
   subtitle: "Happy birthday, Labi! 🎉 - Here's your symphony :)) - AVDH",
 
   // ---- Note form (Supabase → Project Settings → API Keys) ----
