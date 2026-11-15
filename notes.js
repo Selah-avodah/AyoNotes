@@ -19,7 +19,7 @@
 
 window.JAR_OF_NOTES = {
   title: "Jar of Notes",
-  subtitle: "Every key holds a note from someone who loves you",
+  subtitle: "Happy birthday, Labi! 🎉 - Here's your symphony :)) - AVDH",
 
   // ---- Note form (Supabase → Project Settings → API Keys) ----
   supabaseUrl: "https://hnihfyejckgkduiyassj.supabase.co",   // e.g. "https://abcdxyz.supabase.co"
