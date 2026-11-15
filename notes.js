@@ -22,7 +22,7 @@ window.JAR_OF_NOTES = {
   subtitle: "Every key holds a note from someone who loves you",
 
   // ---- Note form (Supabase → Project Settings → API Keys) ----
-  supabaseUrl: "https://yourproject.supabase.co",   // e.g. "https://abcdxyz.supabase.co"
+  supabaseUrl: "https://hnihfyejckgkduiyassj.supabase.co",   // e.g. "https://abcdxyz.supabase.co"
   supabaseKey: "sb_publishable_29I7-iBAaE4iboMW1wBZtw_1UcCyVEL",   // the "publishable" (or "anon public") key, NOT the secret key
   requireApproval: false, // set true if you turned on approval (see README)
 
