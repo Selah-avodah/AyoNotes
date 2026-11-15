@@ -27,24 +27,5 @@ window.JAR_OF_NOTES = {
   requireApproval: false, // set true if you turned on approval (see README)
 
   // ---- Notes you add by hand (delete the examples) ----
-  notes: [
-    {
-      from: "Maya",
-      text: "Remember the night we got lost looking for that dumpling place and ended up having the best time anyway? That's what being your friend is like. 🥟",
-      date: "Spring 2026"
-    },
-    {
-      from: "Leo",
-      image: "notes/sample-note.svg"
-    },
-    {
-      from: "Priya",
-      text: `Things I love about you:
-• you always remember the small stuff
-• your terrible puns
-• how you hype everyone up
-
-Never change.`
-    }
-  ]
+  notes: []
 };
